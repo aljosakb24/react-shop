@@ -3,11 +3,11 @@ import React from "react";
 const Cart = () => {
   return (
     <>
-      <section class="single py-5">
-        <article class="container">
-          <div class="row align-items-center">
-            <div class="col-md-10 mx-auto">
-              <table class="table table-striped table-hover shadow-lg">
+      <section className="single py-5">
+        <article className="container">
+          <div className="row align-items-center">
+            <div className="col-md-10 mx-auto">
+              <table className="table table-striped table-hover shadow-lg">
                 <thead>
                   <tr>
                     <th scope="col">#</th>
@@ -33,7 +33,7 @@ const Cart = () => {
                   </tr>
                 </tbody>
               </table>
-              <a href="" class="button mt-4">
+              <a href="" className="button mt-4">
                 Payment process
               </a>
             </div>
