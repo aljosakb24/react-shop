@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const NavBar = () => {
+const NavBar = ({ cart }) => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-white">
       <div className="container">
@@ -40,7 +40,7 @@ const NavBar = () => {
 
             <li className="nav-item">
               <Link className="nav-link" to="/cart">
-                Cart
+                Cart({cart.lenght})
               </Link>
             </li>
           </ul>

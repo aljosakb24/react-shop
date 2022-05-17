@@ -21,9 +21,9 @@ const Single = ({ items, cart, setCart }) => {
   };
 
   let options = [];
-  for (let i = 1; i < items[params.singleID].qty; i++) {
+  for (let i = 1; i <= items[params.singleID].qty; i++) {
     options.push(
-      <option key={i} value="{i}">
+      <option key={i} value={i}>
         {i}
       </option>
     );

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Cart = () => {
+const Cart = ({ cart, setCart }) => {
   return (
     <>
       <section className="single py-5">
@@ -10,18 +10,60 @@ const Cart = () => {
               <table className="table table-striped table-hover shadow-lg">
                 <thead>
                   <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Product</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Image</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Description</th>
                     <th scope="col">Quantity</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Remove</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  {cart.map((item, idx) => {
+                    return (
+                      <tr>
+                        <th scope="row">{item.id}</th>
+                        <td>
+                          <img src={item.img} height="30px" />
+                        </td>
+                        <td>{item.title}</td>
+                        <td>{item.desc}</td>
+                        <td>{item.qty}</td>
+                        <td>${item.price}</td>
+                        <td>
+                          <button className="btn btn-danger">x</button>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                  {/* <tr>
                     <th scope="row">1</th>
+                    <td>
+                      <img src="img/product1.jpg" height="30px" />
+                    </td>
                     <td>Orange t-shirt</td>
+                    <td>Neki opis</td>
                     <td>1</td>
-                  </tr>
+                    <td>$39</td>
+                    <td>
+                      <button className="btn btn-danger">x</button>
+                    </td>
+                  </tr> */}
                   <tr>
+                    <th scope="row"></th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>Total:</td>
+                    <td>
+                      $
+                      {cart.reduce((acc, cur) => {
+                        return acc + cur.price * cur.qty;
+                      }, 0)}
+                    </td>
+                  </tr>
+                  {/* <tr>
                     <th scope="row">2</th>
                     <td>Traveller bag</td>
                     <td>1</td>
@@ -30,7 +72,7 @@ const Cart = () => {
                     <th scope="row">3</th>
                     <td>Sunglasss</td>
                     <td>1</td>
-                  </tr>
+                  </tr> */}
                 </tbody>
               </table>
               <a href="" className="button mt-4">

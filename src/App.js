@@ -37,19 +37,28 @@ const App = () => {
     },
   ]);
 
-  const [cart setCart] = useState([]);
+  const [cart, setCart] = useState([]);
 
   return (
     <BrowserRouter>
       <div>
-        <NavBar></NavBar>
+        <NavBar cart={cart}></NavBar>
         <Routes>
-          <Route path="/" element={<Home items={items} />}></Route>
-          <Route path="/single" element={<Single items={items} cart={cart} setCart={setCart}/>}>
+          <Route
+            path="/"
+            element={<Home items={items} cart={cart} setCart={setCart} />}
+          ></Route>
+          <Route
+            path="/single"
+            element={<Single items={items} cart={cart} setCart={setCart} />}
+          >
             <Route path=":singleID" element={<Single />} />
           </Route>
           <Route path="/admin" element={<Admin />}></Route>
-          <Route path="/cart" element={<Cart />}></Route>
+          <Route
+            path="/cart"
+            element={<Cart cart={cart} setCart={setCart} />}
+          ></Route>
           <Route path="*" element={<NotFound />}></Route>
         </Routes>
         <Footer></Footer>
