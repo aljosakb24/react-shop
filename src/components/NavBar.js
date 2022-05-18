@@ -40,7 +40,7 @@ const NavBar = ({ cart }) => {
 
             <li className="nav-item">
               <Link className="nav-link" to="/cart">
-                Cart({cart.lenght})
+                Cart{cart.lenght}
               </Link>
             </li>
           </ul>

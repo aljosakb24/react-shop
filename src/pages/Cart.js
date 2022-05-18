@@ -1,6 +1,12 @@
 import React from "react";
 
 const Cart = ({ cart, setCart }) => {
+  const removeFromCart = (idx) => {
+    let tempCart = [...cart];
+    tempCart.splice(idx, 1);
+    setCart(tempCart);
+  };
+
   return (
     <>
       <section className="single py-5">
@@ -22,7 +28,7 @@ const Cart = ({ cart, setCart }) => {
                 <tbody>
                   {cart.map((item, idx) => {
                     return (
-                      <tr>
+                      <tr key={idx}>
                         <th scope="row">{item.id}</th>
                         <td>
                           <img src={item.img} height="30px" />
@@ -32,7 +38,12 @@ const Cart = ({ cart, setCart }) => {
                         <td>{item.qty}</td>
                         <td>${item.price}</td>
                         <td>
-                          <button className="btn btn-danger">x</button>
+                          <button
+                            onClick={() => removeFromCart(idx)}
+                            className="btn btn-danger"
+                          >
+                            x
+                          </button>
                         </td>
                       </tr>
                     );
@@ -53,7 +64,14 @@ const Cart = ({ cart, setCart }) => {
                   <tr>
                     <th scope="row"></th>
                     <td></td>
-                    <td></td>
+                    <td>
+                      <button
+                        className="btn btn-danger"
+                        onClick={() => setCart([])}
+                      >
+                        Clear All
+                      </button>
+                    </td>
                     <td></td>
                     <td>Total:</td>
                     <td>

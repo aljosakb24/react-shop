@@ -2,6 +2,21 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Home = ({ items, cart, setCart }) => {
+  const addToCart = (idx) => {
+    let newCartItem = {
+      id: items[idx].id,
+      title: items[idx].title,
+      price: items[idx].price,
+      desc: items[idx].desc,
+      qty: 1,
+      img: items[idx].img,
+    };
+
+    setCart((prev) => {
+      return [...prev, newCartItem];
+    });
+  };
+
   return (
     <>
       <div
@@ -110,7 +125,7 @@ const Home = ({ items, cart, setCart }) => {
                       </div>
                       <p className="card-text">{item.desc}</p>
                       <Link
-                        // onClick={() => addToCart(idx)}
+                        onClick={() => addToCart(idx)}
                         className="button"
                         to="/cart"
                       >
